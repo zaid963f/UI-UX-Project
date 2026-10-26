@@ -1,0 +1,367 @@
+/* Sized for iPhone 13 / 14: 390 x 844 viewport. */
+
+/* ---------- Shared ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.2s;
+
+  &:hover {
+    background: var(--accent-dark);
+  }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Layout ---------- */
+.app {
+  max-width: 390px;
+  margin: 0 auto;
+  min-height: 100svh;
+  padding-bottom: 80px; /* room for the fixed tab bar */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 4px 16px 24px;
+}
+
+/* ---------- Top bar ---------- */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 12px;
+}
+
+.brand {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+
+  /* tilted like the Figma mark: bristles top-right, handle bottom-left */
+  img {
+    width: 40px;
+    height: 40px;
+    transform: rotate(30deg);
+  }
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.location-chevron {
+  width: 11px;
+  height: auto;
+}
+
+/* pin outline (20x24) with its 8x8 dot centred in the head */
+.location-pin {
+  position: relative;
+  flex: none;
+  width: 20px;
+  height: 24px;
+
+  img {
+    width: 20px;
+    height: 24px;
+  }
+
+  .location-dot {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* ---------- Search ---------- */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  height: 40px;
+  border-radius: 999px;
+  background: var(--surface);
+  cursor: text;
+
+  svg {
+    flex: none;
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: var(--text);
+    stroke-width: 2.4;
+    stroke-linecap: round;
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: 13px;
+    color: var(--text-h);
+    outline: none;
+
+    &::placeholder {
+      color: var(--text);
+    }
+  }
+}
+
+/* ---------- Featured banner ---------- */
+.featured {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid var(--accent-line);
+  background: #fff7f1;
+
+  strong {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-h);
+  }
+  small {
+    font-size: 12px;
+  }
+}
+
+.featured-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--accent);
+
+  img {
+    width: 22px;
+    height: auto;
+  }
+}
+
+/* ---------- Filter chips ---------- */
+.chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin: 0 -16px;
+  padding: 2px 16px;
+  scrollbar-width: none;
+}
+
+.chip {
+  flex: none;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-h);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+
+  &[aria-pressed='true'] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+}
+
+/* ---------- Salons ---------- */
+.section-title {
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+.salon-list {
+  display: grid;
+  gap: 16px;
+}
+
+.salon-card {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.salon-img {
+  width: 100%;
+  aspect-ratio: 351 / 130;
+  object-fit: cover;
+}
+
+.salon-body {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px 12px;
+}
+
+.salon-info {
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .salon-area {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-h);
+  }
+  .salon-from {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+  .salon-price {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+}
+
+.open-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+.salon-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+
+  svg {
+    width: 14px;
+    height: 14px;
+    fill: var(--accent);
+  }
+}
+
+.details-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #000;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #333;
+  }
+}
+
+.empty {
+  text-align: center;
+  padding: 24px 0;
+}
+
+/* ---------- Bottom tab bar ---------- */
+.tab-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 390px;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 8px calc(10px + env(safe-area-inset-bottom));
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  min-width: 64px;
+  font-size: 11px;
+  font-weight: 500;
+
+  img {
+    width: 18px;
+    height: auto;
+    max-height: 18px;
+  }
+
+  &[aria-current='page'] {
+    color: var(--accent);
+  }
+}
+
+/* ---------- 404 ---------- */
+.not-found {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px 16px;
+  gap: 12px;
+
+  .eyebrow {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  .lead {
+    max-width: 28em;
+    margin-bottom: 8px;
+  }
+}
